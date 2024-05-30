@@ -3,7 +3,7 @@ services:
     build:
       context: .
       args:
-        PLUGINS: ${AMARILLO_PLUGINS-amarillo-metrics amarillo-gtfs-exporter }  
+        PLUGINS: ${AMARILLO_PLUGINS-amarillo-metrics amarillo-grfs-exporter }  
     environment:
     # Configure these for external enhancer and/or generator
     - ENHANCER_URL=${AMARILLO_ENHANCER_URL:-http://enhancer:80} 
@@ -20,8 +20,8 @@ services:
     volumes:
     - ./data:/app/data
     ports:
-      # - "8000:80"
-      - "${PORT:-8000}:80"
+      # - "8002:80"
+      - "${PORT:-8002}:80"
   enhancer:
     image: "amarillo-enhancer"
     volumes:
@@ -29,7 +29,7 @@ services:
     profiles:
       - enhancer
   generator:
-    image: "amarillo-gtfs-generator"
+    image: "amarillo-grfs-generator"
     volumes:
     - ./data:/app/data
     profiles:
