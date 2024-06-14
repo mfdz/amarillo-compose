@@ -1,9 +1,6 @@
 services:
   amarillo:
-    build:
-      context: .
-      args:
-        PLUGINS: ${AMARILLO_PLUGINS-amarillo-metrics amarillo-grfs-exporter }  
+    image: "git.gerhardt.io/amarillo/amarillo:latest"
     environment:
     # Configure these for external enhancer and/or generator
     - ENHANCER_URL=${AMARILLO_ENHANCER_URL:-http://enhancer:80} 
@@ -12,24 +9,23 @@ services:
     - ADMIN_TOKEN=${ADMIN_TOKEN?}
     - RIDE2GO_TOKEN=${RIDE2GO_TOKEN-}
     - GRAPHHOPPER_BASE_URL='https://api.mfdz.de/gh'
-    # - SECRET_KEY
-    # - METRICS_USER
-    # - METRICS_PASSWORD
+    # - SECRET_KEY=${SECRET_KEY?}
+    # - METRICS_USER=${METRICS_USER?}
+    # - METRICS_PASSWORD=${METRICS_PASSWORD?}
     
-    # - MAX_WORKERS=1
+    - MAX_WORKERS=${MAX_WORKERS}
     volumes:
     - ./data:/app/data
     ports:
-      # - "8002:80"
-      - "${PORT:-8002}:80"
+      - "${PORT:-8000}:80"
   enhancer:
-    image: "amarillo-enhancer"
+    image: ${AMARILLO_ENHANCER_IMAGE:-"git.gerhardt.io/amarillo/amarillo-enhancer:latest"}
     volumes:
     - ./data:/app/data
     profiles:
       - enhancer
   generator:
-    image: "amarillo-grfs-generator"
+    image: ${AMARILLO_GENERATOR_IMAGE:-"git.gerhardt.io/amarillo/amarillo-gtfs-generator:latest"}
     volumes:
     - ./data:/app/data
     profiles:
@@ -37,4 +33,5 @@ services:
 
 
 #sudo docker compose --profile enhancer up   
+#sudo docker compose --profile generator up   
 #sudo docker compose --profile enhancer --profile generator up   
