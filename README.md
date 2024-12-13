@@ -3,16 +3,20 @@ Docker compose files for [Amarillo](https://github.com/mfdz/amarillo), [Amarillo
 
 # Basic setup
 
-Configure the `ADMIN_TOKEN` environment variable in the shell or a `.env` file:
+Configure the `ADMIN_TOKEN`, `METRICS_USER` and `METRICS_PASSWORD`  environment variables in the shell or a `.env` file:
 
 ```bash
-ADMIN_TOKEN="secret_here"
+ADMIN_TOKEN="<secret_here>"
+METRICS_USER="<username here>"
+METRICS_PASSWORD="<password_here>"
 ```
+`METRICS_USER` and `METRICS_PASSWORD` define the credentials to access the /metrics endpoint. 
+
 
 For launching Amarillo
 
 ```bash
-docker compose --profile enhancer --profile generator up 
+docker compose --profile enhancer --profile generator up
 ```
 
 This will launch Amarillo together with a local enhancer and gtfs-generator service with the container images published to the [GI package registry](https://git.gerhardt.io/amarillo/-/packages).
