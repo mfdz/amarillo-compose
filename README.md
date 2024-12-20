@@ -1,6 +1,18 @@
 # amarillo-compose
 Docker compose files for [Amarillo](https://github.com/mfdz/amarillo), [Amarillo-enhancer](https://github.com/mfdz/amarillo-enhancer) and [GTFS generator](https://github.com/mfdz/amarillo-gtfs-generator/) for quickly deploying an Amarillo instance.
 
+# Quick start
+
+To get Amarillo running quickly:
+
+```bash
+git clone https://github.com/mfdz/amarillo-compose.git
+cd amarillo-compose
+cp .env.example .env    # you should adjust .env configuration as needed
+mkdir data && cp -r ./sampledata/* data     # copies sample data with 1 agency and 1 repeating trip
+sudo docker compose --profile enhancer --profile generator up # starts amarillo, amarillo-enhancer and amarillo-gtfs-generator 
+ ```
+
 # Basic setup
 
 Configure the `ADMIN_TOKEN`, `METRICS_USER` and `METRICS_PASSWORD`  environment variables in the shell or a `.env` file:
@@ -11,6 +23,11 @@ METRICS_USER="<username here>"
 METRICS_PASSWORD="<password_here>"
 ```
 `METRICS_USER` and `METRICS_PASSWORD` define the credentials to access the /metrics endpoint. 
+
+To use [Mitanand GRFS generation](https://github.com/mitanand/grfs), change the generator image:
+```bash
+AMARILLO_GENERATOR_IMAGE="git.gerhardt.io/amarillo/amarillo-grfs-generator"
+```
 
 
 For launching Amarillo
