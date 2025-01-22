@@ -1,0 +1,1 @@
+{ "id":"1003", "agency":"mfdz", "deeplink":"https://mfdz.de/trip/1003", "stops": [ { "name":"Stuttgart", "lat":48.783333, "lon":9.183333 }, { "name":"Herrenberg", "lat":48.596142, "lon":8.870090 } ], "departureTime":"07:00:00","departureDate":["monday", "tuesday", "wednesday", "thursday", "friday"], "lastUpdated": "2025-01-22T14:02:08Z" }

@@ -9,7 +9,8 @@ To get Amarillo running quickly:
 git clone https://github.com/mfdz/amarillo-compose.git
 cd amarillo-compose
 cp .env.example .env    # you should adjust .env configuration as needed
-mkdir data && cp -r ./sampledata/* data     # copies sample data with 1 agency and 1 repeating trip
+./update_sample_data.sh # sets current dates for the sample trips 
+mkdir -p data && cp -r ./sampledata/* data     # copies sample data with 1 agency and 4 sample trips
 sudo docker compose --profile enhancer --profile generator up # starts amarillo, amarillo-enhancer and amarillo-gtfs-generator 
  ```
 

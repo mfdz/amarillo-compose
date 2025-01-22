@@ -1,0 +1,1 @@
+{ "id":"1002", "agency":"mfdz", "deeplink":"https://mfdz.de/trip/1002", "stops": [ { "name":"Stuttgart", "lat":48.783333, "lon":9.183333 }, { "name":"Frankfurt", "lat":50.110924, "lon":8.682127 } ], "departureTime":"18:00:00","departureDate":"2025-01-23", "lastUpdated": "2025-01-22T14:02:08Z" }
