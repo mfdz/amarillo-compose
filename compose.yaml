@@ -22,13 +22,13 @@ services:
     ports:
       - "${PORT:-8000}:80"
   enhancer:
-    image: ${AMARILLO_ENHANCER_IMAGE:-"git.gerhardt.io/amarillo/amarillo-enhancer:latest"}
+    image: ${AMARILLO_ENHANCER_IMAGE:-"ghcr.io/mfdz/amarillo-enhancer:main"}
     volumes:
     - ./data:/app/data
     profiles:
       - enhancer
   generator:
-    image: ${AMARILLO_GENERATOR_IMAGE:-"git.gerhardt.io/amarillo/amarillo-gtfs-generator:latest"}
+    image: ${AMARILLO_GENERATOR_IMAGE:-"ghcr.io/mfdz/amarillo-gtfs-generator:main"}
     volumes:
     - ./data:/app/data
     profiles:

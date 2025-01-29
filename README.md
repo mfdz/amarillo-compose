@@ -39,9 +39,7 @@ For launching Amarillo
 docker compose --profile enhancer --profile generator up
 ```
 
-This will launch Amarillo together with a local enhancer and gtfs-generator service with the container images published to the [GI package registry](https://git.gerhardt.io/amarillo/-/packages).
-
-<!-- TODO use GHCR links -->
+This will launch Amarillo together with a local enhancer and gtfs-generator service with the container images published to the [MFDZ package registry](https://github.com/orgs/mfdz/packages).
 
 # External services
 
